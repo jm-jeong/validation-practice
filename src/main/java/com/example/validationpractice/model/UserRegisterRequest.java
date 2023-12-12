@@ -1,5 +1,6 @@
 package com.example.validationpractice.model;
 
+import com.example.validationpractice.annotation.YearMonth;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.validation.constraints.*;
@@ -41,6 +42,9 @@ public class UserRegisterRequest {
 
     @FutureOrPresent
     private LocalDateTime registerAt;
+
+    @YearMonth
+    private String birthDayYearMonth;
 
     @AssertTrue(message = "name 또는 nick_name은 반드시 1개 이상 존재해야 합니다.")
     public boolean isNameCheck() {
